@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Flying Roadster: Night Ramp Experiment</title>
+<meta name="description" content="A free 3D browser stunt game. Launch an electric roadster off a night-time ramp, fly through energy rings, flip, and stick the landing.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<div id="hud" class="hud" hidden>
+  <div id="tl"><div id="score">0</div><div id="best">Best 0</div><div id="fuel"><i id="fuelb"></i></div></div>
+  <div id="lights"><span class="l"></span><span class="l"></span><span class="l"></span><span class="l"></span></div>
+  <div id="tr"><span>Speed <b id="spd">0</b> km/h</span><span>Altitude <b id="alt">0</b> m</span><span>Flips <b id="flp">0</b></span>
+    <button id="mute" class="btn small" type="button">Sound on</button></div>
+  <div id="msg"></div>
+  <div id="touch">
+    <div><button id="bl" class="tb" type="button" aria-label="Rotate left">&#8630;</button><button id="br" class="tb" type="button" aria-label="Rotate right">&#8631;</button></div>
+    <button id="bt" class="tb big" type="button" aria-label="Launch and thrust">Go</button>
+  </div>
+</div>
+
+<section id="menu" class="ov">
+  <div class="card">
+    <h1>Flying Roadster</h1>
+    <p class="sub">Night Ramp Experiment</p>
+    <p>Wait for the green light, launch off the ramp, fly through the energy rings, flip, and land on your wheels. Thrusters slow your fall but burn limited fuel.</p>
+    <dl>
+      <dt>Keyboard</dt><dd>Space launches and thrusts. Left and right arrows rotate. Enter restarts. M mutes.</dd>
+      <dt>Touch</dt><dd>Go launches and thrusts. The two arrow buttons rotate.</dd>
+      <dt>Scoring</dt><dd>Rings, flips, altitude and airtime add up. A cleaner landing multiplies your score.</dd>
+    </dl>
+    <button id="start" class="btn" type="button">Start experiment</button>
+  </div>
+  <a class="foot" href="privacy.html">Privacy policy</a>
+</section>
+
+<section id="result" class="ov" hidden>
+  <div class="card">
+    <h2 id="rt">Run complete</h2>
+    <div id="rs"></div>
+    <button id="retry" class="btn" type="button">Try again</button>
+  </div>
+</section>
+
+<section id="nogl" class="ov" hidden>
+  <div class="card"><h2>3D is not available</h2><p>This game needs WebGL. Turn on hardware acceleration in your browser settings, or try another browser or device.</p></div>
+</section>
+<noscript><p style="position:fixed;top:1rem;left:1rem">Please enable JavaScript to play.</p></noscript>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
